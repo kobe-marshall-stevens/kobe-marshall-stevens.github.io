@@ -769,7 +769,7 @@ html:lang(ko),
 .table td,
 .table th {
 	vertical-align: top;
-	border-bottom: .05rem solid #dadee4;
+	border-bottom: .00rem solid #dadee4;
 	padding: .6rem .4rem;
 }
 
