@@ -774,7 +774,7 @@ html:lang(ko),
 }
 
 .table th {
-	border-bottom-width: none;
+	border-bottom-width: .1rem;
 }
 
 .btn {
