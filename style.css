@@ -280,7 +280,7 @@ hr {
 /* Text-level semantics ========================================================================== */
 /** 1. Remove the gray background on active links in IE 10. 2. Remove gaps in links underline in iOS 8+ and Safari 8+. */
 a {
-	background-color: #e9e8e3; /* 1 */
+	background-color: #f9f6ee; /* 1 */
 	-webkit-text-decoration-skip: objects; /* 2 */
 }
 
@@ -1554,13 +1554,13 @@ textarea.form-input.input-sm {
 .form-input.disabled,
 .form-select:disabled,
 .form-select.disabled {
-	background-color: #eef0f3;
+	background-color: #f9f6ee;
 	cursor: not-allowed;
 	opacity: .5;
 }
 
 .form-input[readonly] {
-	background-color: #f7f8f9;
+	background-color: #f9f6ee;
 }
 
 input:disabled + .form-icon,
