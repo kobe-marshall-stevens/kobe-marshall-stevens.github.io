@@ -13,7 +13,12 @@
     background-color: #f9f6ee;
   }
 </style>
-	<style>.papers td:last-child { width: 4rem; text-align: right; }</style>
+	<style>
+  .papers td:last-child { width: 4rem; text-align: right; vertical-align: middle; }
+  /* PDF links: outlined pill that fills blue on hover. */
+  .btn.pdf-btn { background: transparent; border-radius: 1rem; padding: .05rem .6rem; }
+  .btn.pdf-btn:hover, .btn.pdf-btn:focus { background: #457b9d; border-color: #457b9d; color: #fff; }
+</style>
 	<style>
   /* Name and bio on the left, photo on the right, photo as tall as the text. */
   .header { display: flex; align-items: stretch; gap: 1.5rem; margin-bottom: 1rem; }
@@ -73,7 +78,7 @@
 				<br>With Gongping Niu.
 		    	<br>Submitted for publication.
 		    </td>
-                <td><br><a href="???.pdf">pdf</a></td>
+                <td><a href="???.pdf" class="btn btn-sm pdf-btn">PDF</a></td>
             </tr>
 			-->
 			<tr>
@@ -81,27 +86,27 @@
 				<br>With Gongping Niu.
 		    	<br><b>International Mathematics Research Notices</b>, accepted for publication.
 		    </td>
-                <td><br><a href="iso_by_stretch_accepted.pdf">pdf</a></td>
+                <td><a href="iso_by_stretch_accepted.pdf" class="btn btn-sm pdf-btn">PDF</a></td>
             </tr>
 			<tr>
                 <td>Generic regularity of isoperimetric regions in dimension eight. 
 				<br>With Gongping Niu and Davide Parise.
 		    	<br>Submitted for publication.
 		    </td>
-                <td><br><a href="gen_reg_iso.pdf">pdf</a></td>
+                <td><a href="gen_reg_iso.pdf" class="btn btn-sm pdf-btn">PDF</a></td>
             </tr>
 			<tr>
                 <td>Gradient flow of phase transitions with fixed contact angle. 
 				<br>With Mayu Takada, Yoshihiro Tonegawa, and Myles Workman.
 		    	<br><b>Interfaces and Free Boundaries</b>, published online first.
 		    </td>
-                <td><br><a href="AC_contact_accepted.pdf">pdf</a></td>
+                <td><a href="AC_contact_accepted.pdf" class="btn btn-sm pdf-btn">PDF</a></td>
             </tr>
             <tr>
             	<td>On isolated singularities and generic regularity of min-max CMC hypersurfaces. 
 				<br>With Costante Bellettini.
 				<br><b>The Journal of Geometric Analysis</b>, volume 35, article number 126, 2025.</td>
-                <td><br><a href="gen_reg_cmc_accepted.pdf">pdf</a></td>
+                <td><a href="gen_reg_cmc_accepted.pdf" class="btn btn-sm pdf-btn">PDF</a></td>
             </tr>
                 </tbody>
             </table>
@@ -116,7 +121,7 @@
 				<br>With Alejandro José Soto Franco.
 		    	<br>Submitted for publication.
 		    </td>
-                <td><br><a href="formal_elliptic.pdf">pdf</a></td>
+                <td><a href="formal_elliptic.pdf" class="btn btn-sm pdf-btn">PDF</a></td>
             </tr>
                 </tbody>
             </table>
@@ -186,23 +191,23 @@
                 <tbody>
 		<tr>
                     <td>Partial Differential Equations II, Spring 2026.</td>
-		    <td align="right"><a href="Partial_Differential_Equations_combined_notes.pdf">pdf</a></td>
+		    <td><a href="Partial_Differential_Equations_combined_notes.pdf" class="btn btn-sm pdf-btn">PDF</a></td>
                 </tr>
 		<tr>
                     <td>Partial Differential Equations I, Fall 2025.</td>
-		    <td align="right"><a href="Partial_Differential_Equations_I_notes.pdf">pdf</a></td>
+		    <td><a href="Partial_Differential_Equations_I_notes.pdf" class="btn btn-sm pdf-btn">PDF</a></td>
                 </tr>
 		<tr>
                     <td>Honors Analysis I, Fall 2025.</td>
-		    <td align="right"><a href="Honors_Analysis_I_notes.pdf">pdf</a></td>
+		    <td><a href="Honors_Analysis_I_notes.pdf" class="btn btn-sm pdf-btn">PDF</a></td>
                 </tr>
 		<tr>
                     <td>Calculus on Manifolds, Spring 2025 + Spring 2027.</td>
-		    <td align="right"><a href="Calculus_on_Manifolds_notes.pdf">pdf</a></td>
+		    <td><a href="Calculus_on_Manifolds_notes.pdf" class="btn btn-sm pdf-btn">PDF</a></td>
                 </tr>
 		<tr>
                     <td>Calculus I (Physical Sciences and Engineering), Fall 2024 + Fall 2026.</td>
-		    <td align="right"><a href="Calculus_I_notes.pdf">pdf</a></td>
+		    <td><a href="Calculus_I_notes.pdf" class="btn btn-sm pdf-btn">PDF</a></td>
                 </tr>
                 </tbody>
             </table>
@@ -213,11 +218,11 @@
                 <tbody>
 		<tr>
                     <td>Doctoral thesis.</td>
-                    <td align="right"><a href="Doctoral_thesis.pdf">pdf</a></td>
+                    <td><a href="Doctoral_thesis.pdf" class="btn btn-sm pdf-btn">PDF</a></td>
 		</tr>
                 <tr>
                     <td>Master's thesis.</td>
-                    <td align="right"><a href="Master's_thesis.pdf">pdf</a></td>
+                    <td><a href="Master's_thesis.pdf" class="btn btn-sm pdf-btn">PDF</a></td>
 		</tr>
                 </tbody>
             </table>
