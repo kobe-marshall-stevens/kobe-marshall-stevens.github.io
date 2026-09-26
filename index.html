@@ -91,13 +91,14 @@
      HTML is just a list of <span class="venue">). A venue name never splits
      across lines unless it's longer than the line itself. On phones the year
      sits on its own line above the venues. */
-  .talks { padding: 0 .4rem; margin-bottom: 1.5rem; }
-  .talks p { position: relative; margin: 0 0 .6rem; line-height: 1.5rem; padding-left: 3.5rem; }
-  .talks .year { position: absolute; left: 0; font-weight: 600; }
+  /* Each year gets the same padding and grey divider as the table rows. */
+  .talks { margin-bottom: 1.5rem; }
+  .talks p { position: relative; margin: 0; line-height: 1.5rem; padding: .6rem .4rem .6rem 3.9rem; border-bottom: .05rem solid #dadee4; }
+  .talks .year { position: absolute; left: .4rem; top: .6rem; font-weight: 600; }
   .talks .venue { display: inline-block; }
   .talks .venue:not(:last-child)::after { content: "\00B7"; color: #8f98a6; margin: 0 .05rem 0 .25rem; }
   @media (max-width: 600px) {
-    .talks p { padding-left: 0; }
+    .talks p { padding-left: .4rem; }
     .talks .year { position: static; display: block; margin-bottom: .1rem; }
   }
 </style>
