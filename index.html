@@ -35,10 +35,10 @@
 	<style>
   /* Name and bio on the left, photo on the right, photo as tall as the text. */
   .header { display: flex; align-items: stretch; gap: 1.5rem; margin-bottom: 1rem; }
-  /* The text block is only as wide as the name and title line; the bio wraps
-     to that width instead of stretching across the page. */
+  /* The bio wraps at a comfortable reading width instead of stretching across
+     the page; text-wrap: balance evens out the line lengths. */
   .header-text { flex: 0 1 auto; min-width: 0; }
-  .header-text .bio { width: 0; min-width: 100%; margin-top: 1.2rem; }
+  .header-text .bio { max-width: 32rem; margin-top: 1.2rem; text-wrap: balance; }
   .header-text h1 { margin-top: 0; }
   .header-text p:last-of-type { margin-bottom: 0; }
   /* The photo box takes its height from the text; the script below sets its
@@ -49,9 +49,8 @@
      top right and let the text wrap around it. */
   @media (max-width: 600px) {
     .header { display: block; }
-    .header-text .bio { width: auto; min-width: 0; }
     .header::after { content: ""; display: table; clear: both; }
-    .header-photo { float: right; width: 35% !important; aspect-ratio: 1; margin: 0 0 .5rem 1rem; }
+    .header-photo { float: right; width: 45% !important; aspect-ratio: 1; margin: 0 0 .5rem 1rem; }
   }
 </style>
 </head>
