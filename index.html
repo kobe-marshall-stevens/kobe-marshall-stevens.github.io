@@ -30,6 +30,10 @@
 </style>
 	<style>
   .papers td { vertical-align: middle; }
+  /* Research: paper titles slightly larger, co-author lines in warm grey, so
+     each entry leads with its title. */
+  .papers td:first-child > i { font-size: 1.08em; }
+  .papers .authors { color: #7d766a; }
   /* Teaching: course level and terms in warm grey under each course name;
      a term never splits across lines. */
   .course-info { color: #7d766a; font-size: .9em; }
@@ -129,7 +133,8 @@
   html[data-theme="dark"] h1, html[data-theme="dark"] h2, html[data-theme="dark"] b,
   html[data-theme="dark"] .talk-year .year { color: #e8e3d8; }
   html[data-theme="dark"] .table td, html[data-theme="dark"] .talk-year { border-bottom-color: #383530; }
-  html[data-theme="dark"] .course-info, html[data-theme="dark"] .talk-year .seminar { color: #a8a193; }
+  html[data-theme="dark"] .course-info, html[data-theme="dark"] .talk-year .seminar,
+  html[data-theme="dark"] .papers .authors { color: #a8a193; }
   html[data-theme="dark"] .header-text .job-market { background: #2b2925; color: #e8e3d8; }
   html[data-theme="dark"] .btn.pdf-btn, html[data-theme="dark"] .btn.pdf-btn:visited,
   html[data-theme="dark"] .btn.pdf-btn:focus { border-color: #8fb3cc; color: #dfe9f0; }
@@ -187,7 +192,7 @@
 			<!--	
 			<tr>
                 <td><i>Isoperimetry of singular CMC hypersurfaces</i> 
-				<br>With Gongping Niu
+				<br><span class="authors">With Gongping Niu</span>
 		    	<br>Submitted for publication
 		    </td>
                 <td><a href="???.pdf" class="btn btn-sm pdf-btn">PDF</a></td>
@@ -195,28 +200,28 @@
 			-->
 			<tr>
                 <td><i>Isoperimetry by stretching</i> 
-				<br>With Gongping Niu
+				<br><span class="authors">With Gongping Niu</span>
 		    	<br><b>International Mathematics Research Notices</b>, volume 2026, issue 18
 		    </td>
                 <td><a href="iso_by_stretch_accepted.pdf" class="btn btn-sm pdf-btn">PDF</a></td>
             </tr>
 			<tr>
                 <td><i>Generic regularity of isoperimetric regions in dimension eight</i> 
-				<br>With Gongping Niu and Davide Parise
+				<br><span class="authors">With Gongping Niu and Davide Parise</span>
 		    	<br>Submitted for publication
 		    </td>
                 <td><a href="gen_reg_iso.pdf" class="btn btn-sm pdf-btn">PDF</a></td>
             </tr>
 			<tr>
                 <td><i>Gradient flow of phase transitions with fixed contact angle</i> 
-				<br>With Mayu Takada, Yoshihiro Tonegawa, and Myles Workman
+				<br><span class="authors">With Mayu Takada, Yoshihiro Tonegawa, and Myles Workman</span>
 		    	<br><b>Interfaces and Free Boundaries</b>, published online first
 		    </td>
                 <td><a href="AC_contact_accepted.pdf" class="btn btn-sm pdf-btn">PDF</a></td>
             </tr>
             <tr>
             	<td><i>On isolated singularities and generic regularity of min-max CMC hypersurfaces</i> 
-				<br>With Costante Bellettini
+				<br><span class="authors">With Costante Bellettini</span>
 				<br><b>The Journal of Geometric Analysis</b>, volume 35, article number 126</td>
                 <td><a href="gen_reg_cmc_accepted.pdf" class="btn btn-sm pdf-btn">PDF</a></td>
             </tr>
@@ -230,7 +235,7 @@
                 <tbody>
 			<tr>
                 <td><i>Formalising linear elliptic PDE theory in Lean</i> 
-				<br>With Alejandro José Soto Franco
+				<br><span class="authors">With Alejandro José Soto Franco</span>
 		    	<br>Submitted for publication
 		    </td>
                 <td><a href="formal_elliptic.pdf" class="btn btn-sm pdf-btn">PDF</a></td>
