@@ -64,23 +64,21 @@
   /* Degrees under the email, in grey so they stay secondary to the title. */
   .header-text .occupation { margin-bottom: 0; }
   .header-text .education { color: #66758c; margin: 0; }
-  /* The photo is always square. The script below sets its width to the height
-     of the name and text so they line up, capped (42% of the row on wide screens,
-     30% at in-between widths, where the text wraps and gets tall) so it stays
-     a sensible square at the top. 10rem is the no-script fallback. */
+  /* The photo is always square. The script at the bottom of the page sizes it
+     to span from the top of the name's letters to the bottom of the banner.
+     10rem is the no-script fallback. */
   .header-photo { grid-column: 2; grid-row: 1 / span 2; position: relative; aspect-ratio: 1; width: 10rem; }
   .header-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; margin: 0; }
-  /* On phones the text is too tall to match, so float a smaller square photo
-     top right and let the text wrap around it. */
+  /* On phones: a centred profile card. Photo on top, then the name, title,
+     email, degrees, bio and banner centred beneath it. */
   @media (max-width: 600px) {
-    .header { display: block; }
-    .header::after { content: ""; display: table; clear: both; }
-    .header-name { margin-bottom: .4rem; }
-    .header-photo { float: right; width: 40% !important; aspect-ratio: 1; margin: .2rem 0 .6rem 1.2rem; }
-    /* Degrees start below the photo so each fits on one line. */
-    .header-text .education { clear: right; padding-top: .2rem; }
-    /* Balanced wrapping looks odd when the text flows around the photo. */
-    .header-text .bio { text-wrap: wrap; margin-top: 1rem; }
+    .header { display: flex; flex-direction: column; align-items: center; }
+    .header-photo { order: -1; width: 9rem !important; margin-bottom: 1rem; }
+    .header-name { margin-bottom: .3rem; text-align: center; }
+    .header-text { align-self: stretch; }
+    .header-text .occupation, .header-text .education,
+    .header-text .bio, .header-text .job-market { text-align: center; }
+    .header-text .bio { margin-top: 1rem; }
   }
 </style>
 	<style>
@@ -292,26 +290,46 @@
     </div>
 </div>
 <script>
-  // Keep the photo square: make its width equal to the height of the name and
-  // text, capped at 42% of the header's width on wide screens and 30% at
-  // in-between widths (where the text wraps and gets tall).
+  // Size the photo to match the header text: its top lines up with the top of
+  // the letters in the name (not the heading's box, which has space above the
+  // letters) and its bottom with the bottom of the banner. Capped at 42% of the
+  // header's width on wide screens and 30% at in-between widths (where the
+  // text wraps and gets tall). Re-runs whenever the text changes size, e.g.
+  // when web fonts finish loading or the page is zoomed.
   (function () {
     var header = document.querySelector('.header');
     var name = document.querySelector('.header-name');
     var text = document.querySelector('.header-text');
     var photo = document.querySelector('.header-photo');
     var narrow = window.matchMedia('(max-width: 600px)');
+    var ctx = document.createElement('canvas').getContext('2d');
+    function letterOffset() {
+      // Distance from the top of the name's box to the top of its capitals.
+      var cs = getComputedStyle(name);
+      ctx.font = cs.fontWeight + ' ' + cs.fontSize + ' ' + cs.fontFamily;
+      var m = ctx.measureText('K');
+      if (!m.fontBoundingBoxAscent) return 0;
+      var lh = parseFloat(cs.lineHeight) || name.getBoundingClientRect().height;
+      var baseline = (lh - m.fontBoundingBoxAscent - m.fontBoundingBoxDescent) / 2 + m.fontBoundingBoxAscent;
+      return Math.max(0, baseline - m.actualBoundingBoxAscent);
+    }
     function fit() {
+      if (narrow.matches) { photo.style.width = ''; photo.style.marginTop = ''; return; }
+      var cap = window.innerWidth >= 900 ? 0.42 : 0.3;
       // Twice: resizing the photo changes the text's width, and so its height.
       for (var i = 0; i < 2; i++) {
-        var cap = window.innerWidth >= 900 ? 0.42 : 0.3;
-        var size = Math.min(name.offsetHeight + text.offsetHeight, header.clientWidth * cap);
-        photo.style.width = narrow.matches ? '' : size + 'px';
+        var offset = letterOffset();
+        var total = name.getBoundingClientRect().height + text.getBoundingClientRect().height;
+        var size = Math.min(total - offset, header.clientWidth * cap);
+        photo.style.marginTop = offset + 'px';
+        photo.style.width = size + 'px';
       }
     }
     fit();
     window.addEventListener('load', fit);
     window.addEventListener('resize', fit);
+    if (document.fonts) document.fonts.ready.then(fit);
+    if (window.ResizeObserver) new ResizeObserver(fit).observe(text);
     // iOS Safari only shows :active (the pressed button style) if the page listens for touches.
     document.addEventListener('touchstart', function () {}, { passive: true });
   })();
