@@ -66,16 +66,18 @@
   }
 </style>
 	<style>
-  /* Talks grouped by year, two columns on wide screens. */
-  .talks { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2rem; align-items: start; margin-bottom: 1.5rem; }
-  .talk-year { display: flex; gap: 1rem; padding: .5rem .4rem; border-bottom: .05rem solid #dadee4; }
-  .talk-year .year { flex: 0 0 3rem; font-weight: 600; }
-  .talk-year ul { list-style: none; margin: 0; padding: 0; flex: 1; }
-  .talk-year li { margin: 0; line-height: 1.5rem; }
+  /* Talks: one line per year, venues separated by dots (added here, so the
+     HTML is just a list of <span class="venue">). A venue name never splits
+     across lines unless it's longer than the line itself. On phones the year
+     sits on its own line above the venues. */
+  .talks { padding: 0 .4rem; margin-bottom: 1.5rem; }
+  .talks p { position: relative; margin: 0 0 .6rem; line-height: 1.5rem; padding-left: 3.5rem; }
+  .talks .year { position: absolute; left: 0; font-weight: 600; }
+  .talks .venue { display: inline-block; }
+  .talks .venue:not(:last-child)::after { content: "\00B7"; color: #bcc3ce; margin: 0 .05rem 0 .25rem; }
   @media (max-width: 600px) {
-    .talks { grid-template-columns: 1fr; }
-    .talk-year { flex-direction: column; gap: .2rem; }
-    .talk-year .year { flex: none; }
+    .talks p { padding-left: 0; }
+    .talks .year { position: static; display: block; margin-bottom: .1rem; }
   }
 </style>
 </head>
@@ -168,43 +170,31 @@
             <h2>Talks</h2>
 
             <div class="talks">
-                <div class="talk-year">
-                    <div class="year">2026</div>
-                    <ul>
-                        <li>University of Maryland</li>
-                        <li>University of Cambridge</li>
-                        <li>Caltech</li>
-                        <li>Stanford University</li>
-                        <li>University of Chicago</li>
-                        <li>AMS Spring Southeastern Sectional Meeting</li>
-                        <li>University of Notre Dame</li>
-                    </ul>
-                </div>
-                <div class="talk-year">
-                    <div class="year">2025</div>
-                    <ul>
-                        <li>University of Tennessee</li>
-                        <li>Brown University</li>
-                        <li>NCTS</li>
-                        <li>University of Tokyo</li>
-                        <li>Keio University</li>
-                        <li>Institute of Science Tokyo</li>
-                    </ul>
-                </div>
-                <div class="talk-year">
-                    <div class="year">2024</div>
-                    <ul>
-                        <li>Johns Hopkins University</li>
-                        <li>University of Tokyo</li>
-                        <li>King's College London</li>
-                    </ul>
-                </div>
-                <div class="talk-year">
-                    <div class="year">2023</div>
-                    <ul>
-                        <li>Chinese University of Hong Kong</li>
-                    </ul>
-                </div>
+                <p><span class="year">2026</span>
+                    <span class="venue">University of Maryland</span>
+                    <span class="venue">University of Cambridge</span>
+                    <span class="venue">Caltech</span>
+                    <span class="venue">Stanford University</span>
+                    <span class="venue">University of Chicago</span>
+                    <span class="venue">AMS Spring Southeastern Sectional Meeting</span>
+                    <span class="venue">University of Notre Dame</span>
+                </p>
+                <p><span class="year">2025</span>
+                    <span class="venue">University of Tennessee</span>
+                    <span class="venue">Brown University</span>
+                    <span class="venue">NCTS</span>
+                    <span class="venue">University of Tokyo</span>
+                    <span class="venue">Keio University</span>
+                    <span class="venue">Institute of Science Tokyo</span>
+                </p>
+                <p><span class="year">2024</span>
+                    <span class="venue">Johns Hopkins University</span>
+                    <span class="venue">University of Tokyo</span>
+                    <span class="venue">King's College London</span>
+                </p>
+                <p><span class="year">2023</span>
+                    <span class="venue">Chinese University of Hong Kong</span>
+                </p>
             </div>
 
 		<h2>Teaching &amp; Notes</h2>
