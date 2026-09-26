@@ -24,6 +24,11 @@
   @media (hover: hover) {
     .btn.pdf-btn:hover { background: #457b9d; border-color: #457b9d; color: #fff; }
   }
+  /* Invisible, slightly larger touch area. It covers the rounded ends and
+     still sits under the finger when the button shrinks while pressed, so a
+     press near the edge doesn't slip off the button. */
+  .btn.pdf-btn { position: relative; }
+  .btn.pdf-btn::after { content: ""; position: absolute; inset: -8px; }
   /* Pressed: darker and slightly smaller, so it feels pushed in. */
   .btn.pdf-btn:active { background: #1d3557; border-color: #1d3557; color: #fff; transform: scale(.93); transition-duration: .05s; }
   /* Bigger, easier-to-tap buttons on phones. */
