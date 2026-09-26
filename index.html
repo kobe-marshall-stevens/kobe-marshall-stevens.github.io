@@ -63,6 +63,19 @@
     .header-photo { float: right; width: 45% !important; max-width: none; aspect-ratio: 1; margin: 0 0 .5rem 1rem; }
   }
 </style>
+	<style>
+  /* Talks grouped by year, two columns on wide screens. */
+  .talks { display: grid; grid-template-columns: 1fr 1fr; column-gap: 2rem; align-items: start; margin-bottom: 1.5rem; }
+  .talk-year { display: flex; gap: 1rem; padding: .5rem .4rem; border-bottom: .05rem solid #dadee4; }
+  .talk-year .year { flex: 0 0 3rem; font-weight: 600; }
+  .talk-year ul { list-style: none; margin: 0; padding: 0; flex: 1; }
+  .talk-year li { margin: 0; line-height: 1.5rem; }
+  @media (max-width: 600px) {
+    .talks { grid-template-columns: 1fr; }
+    .talk-year { flex-direction: column; gap: .2rem; }
+    .talk-year .year { flex: none; }
+  }
+</style>
 </head>
 <body>
 	<div class="container grid-lg">
@@ -97,7 +110,7 @@
                 <tbody>
 			<!--	
 			<tr>
-                <td>Isoperimetry of singular CMC hypersurfaces. 
+                <td><i>Isoperimetry of singular CMC hypersurfaces.</i> 
 				<br>With Gongping Niu.
 		    	<br>Submitted for publication.
 		    </td>
@@ -105,28 +118,28 @@
             </tr>
 			-->
 			<tr>
-                <td>Isoperimetry by stretching. 
+                <td><i>Isoperimetry by stretching.</i> 
 				<br>With Gongping Niu.
 		    	<br><b>International Mathematics Research Notices</b>, accepted for publication.
 		    </td>
                 <td><a href="iso_by_stretch_accepted.pdf" class="btn btn-sm pdf-btn">PDF</a></td>
             </tr>
 			<tr>
-                <td>Generic regularity of isoperimetric regions in dimension eight. 
+                <td><i>Generic regularity of isoperimetric regions in dimension eight.</i> 
 				<br>With Gongping Niu and Davide Parise.
 		    	<br>Submitted for publication.
 		    </td>
                 <td><a href="gen_reg_iso.pdf" class="btn btn-sm pdf-btn">PDF</a></td>
             </tr>
 			<tr>
-                <td>Gradient flow of phase transitions with fixed contact angle. 
+                <td><i>Gradient flow of phase transitions with fixed contact angle.</i> 
 				<br>With Mayu Takada, Yoshihiro Tonegawa, and Myles Workman.
 		    	<br><b>Interfaces and Free Boundaries</b>, published online first.
 		    </td>
                 <td><a href="AC_contact_accepted.pdf" class="btn btn-sm pdf-btn">PDF</a></td>
             </tr>
             <tr>
-            	<td>On isolated singularities and generic regularity of min-max CMC hypersurfaces. 
+            	<td><i>On isolated singularities and generic regularity of min-max CMC hypersurfaces.</i> 
 				<br>With Costante Bellettini.
 				<br><b>The Journal of Geometric Analysis</b>, volume 35, article number 126, 2025.</td>
                 <td><a href="gen_reg_cmc_accepted.pdf" class="btn btn-sm pdf-btn">PDF</a></td>
@@ -140,7 +153,7 @@
             <table class="table papers">
                 <tbody>
 			<tr>
-                <td>Formalising linear elliptic PDE theory in Lean. 
+                <td><i>Formalising linear elliptic PDE theory in Lean.</i> 
 				<br>With Alejandro José Soto Franco.
 		    	<br>Submitted for publication.
 		    </td>
@@ -152,61 +165,45 @@
 		
             <h2>Talks</h2>
 
-            <table class="table">
-                <tbody>
-		<tr>
-                    <td>University of Maryland, September 2026.</td>
-                </tr>
-		<tr>
-                    <td>University of Cambridge, July 2026.</td>
-                </tr>
-		<tr>
-                    <td>Caltech, May 2026.</td>
-                </tr>
-		<tr>
-                    <td>Stanford University, May 2026.</td>
-                </tr>
-		<tr>
-                    <td>University of Chicago, May 2026.</td>
-                </tr>
-		<tr>
-                    <td>AMS Spring Southeastern Sectional Meeting, March 2026.</td>
-                </tr>
-		<tr>
-                    <td>University of Notre Dame, March 2026.</td>
-                </tr>
-		<tr>
-                    <td>University of Tennessee, October 2025.</td>
-                </tr>
-		<tr>
-                    <td>Brown University, June 2025.</td>
-                </tr>
-		<tr>
-                    <td>NCTS, May 2025.</td>
-                </tr>
-		<tr>
-                    <td>University of Tokyo, May 2025.</td>
-                </tr>
-		<tr>
-                    <td>Keio University, May 2025.</td>
-                </tr>
-		<tr>
-                    <td>Institute of Science Tokyo, May 2025.</td>
-                </tr>
-		<tr>
-                    <td>Johns Hopkins University, September 2024.</td>
-                </tr>
-		<tr>
-                    <td>University of Tokyo, March 2024.</td>
-                </tr>
-		<tr>
-                    <td>King's College London, February 2024.</td>
-                </tr>
-		<tr>
-                    <td>Chinese University of Hong Kong, December 2023.</td>
-                </tr>
-                </tbody>
-            </table>
+            <div class="talks">
+                <div class="talk-year">
+                    <div class="year">2026</div>
+                    <ul>
+                        <li>University of Maryland, September.</li>
+                        <li>University of Cambridge, July.</li>
+                        <li>Caltech, May.</li>
+                        <li>Stanford University, May.</li>
+                        <li>University of Chicago, May.</li>
+                        <li>AMS Spring Southeastern Sectional Meeting, March.</li>
+                        <li>University of Notre Dame, March.</li>
+                    </ul>
+                </div>
+                <div class="talk-year">
+                    <div class="year">2025</div>
+                    <ul>
+                        <li>University of Tennessee, October.</li>
+                        <li>Brown University, June.</li>
+                        <li>NCTS, May.</li>
+                        <li>University of Tokyo, May.</li>
+                        <li>Keio University, May.</li>
+                        <li>Institute of Science Tokyo, May.</li>
+                    </ul>
+                </div>
+                <div class="talk-year">
+                    <div class="year">2024</div>
+                    <ul>
+                        <li>Johns Hopkins University, September.</li>
+                        <li>University of Tokyo, March.</li>
+                        <li>King's College London, February.</li>
+                    </ul>
+                </div>
+                <div class="talk-year">
+                    <div class="year">2023</div>
+                    <ul>
+                        <li>Chinese University of Hong Kong, December.</li>
+                    </ul>
+                </div>
+            </div>
 
 		<h2>Teaching &amp; Notes</h2>
 
