@@ -14,7 +14,8 @@
   }
 </style>
 	<style>
-  .papers td:last-child { width: 4rem; text-align: right; vertical-align: middle; }
+  .papers td { vertical-align: middle; }
+  .papers td:last-child { width: 4rem; text-align: right; }
   /* PDF links: outlined pill that fills blue on hover. */
   .btn.pdf-btn, .btn.pdf-btn:visited, .btn.pdf-btn:focus { background: transparent; border-color: #457b9d; color: #1d3557; box-shadow: none; }
   .btn.pdf-btn { border-radius: 1rem; padding: .05rem .6rem; transition: background .15s, border-color .15s, color .15s, transform .08s; }
@@ -38,31 +39,35 @@
   }
 </style>
 	<style>
-  /* Name and bio on the left, photo on the right, photo as tall as the text. */
-  .header { display: flex; align-items: stretch; gap: 1.5rem; margin-bottom: 1rem; }
+  /* Name and bio on the left, photo on the right, photo as tall as the text.
+     The name is its own element before the photo so that on phones it can sit
+     above the photo at full width instead of wrapping beside it. */
+  .header { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 1.5rem; align-items: start; margin-bottom: 1rem; }
+  .header-name { grid-column: 1; grid-row: 1; margin-top: 0; }
+  .header-text { grid-column: 1; grid-row: 2; }
   /* The bio wraps at a comfortable reading width instead of stretching across
      the page; text-wrap: balance evens out the line lengths. */
-  .header-text { flex: 1 1 auto; min-width: 0; }
   .header-text .bio { max-width: 32rem; margin-top: 1.2rem; text-wrap: balance; }
   /* Job market banner: warm tinted box at the bottom of the text column,
      spanning up to the photo (whose height matches the text, so their bottoms
      line up). The .4rem side padding matches the table cells below, so the
      banner text lines up with the paper titles and talks. */
   .header-text .job-market { margin: 1.2rem 0 0; padding: .45rem .4rem; background: #efe9da; border-radius: .2rem; color: #1d3557; text-wrap: balance; display: flow-root; }
-  .header-text h1 { margin-top: 0; }
   .header-text p:last-of-type { margin-bottom: 0; }
-  /* The photo is always square. The script below sets its width to the text's
-     height so they line up; at in-between widths, where the text wraps and gets
-     tall, the 30% cap keeps it a smaller square at the top instead of a
-     stretched rectangle. 10rem is the no-script fallback. */
-  .header-photo { order: 2; margin-left: auto; position: relative; flex: 0 0 auto; align-self: flex-start; aspect-ratio: 1; width: 10rem; max-width: 30%; }
+  /* The photo is always square. The script below sets its width to the height
+     of the name and text so they line up, capped at 30% of the row so that at
+     in-between widths, where the text wraps and gets tall, it stays a smaller
+     square at the top. 10rem is the no-script fallback. */
+  .header-photo { grid-column: 2; grid-row: 1 / span 2; position: relative; aspect-ratio: 1; width: 10rem; }
   .header-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; margin: 0; }
   /* On phones the text is too tall to match, so float a smaller square photo
      top right and let the text wrap around it. */
   @media (max-width: 600px) {
     .header { display: block; }
     .header::after { content: ""; display: table; clear: both; }
-    .header-photo { float: right; width: 45% !important; max-width: none; aspect-ratio: 1; margin: 0 0 .5rem 1rem; }
+    .header-photo { float: right; width: 45% !important; aspect-ratio: 1; margin: .3rem 0 .5rem 1rem; }
+    /* Balanced wrapping looks odd when the text flows around the photo. */
+    .header-text .bio { text-wrap: wrap; }
   }
 </style>
 	<style>
@@ -84,12 +89,13 @@
 <body>
 	<div class="container grid-lg">
     <div class="header">
+        <h1 class="header-name">Kobe Marshall-Stevens</h1>
         <div class="header-photo"><img
                 class="portrait"
                 src="crete%20picture%20square.jpeg"
                 alt="Photo of Kobe Marshall-Stevens"/>
         </div>
-        <div class="header-text"><h1>Kobe Marshall-Stevens</h1>
+        <div class="header-text">
         <p class="occupation"><b>J.J. Sylvester Assistant Professor at Johns Hopkins University</b>
 		<br/>kmarsh34@jh.edu
 			</p>
@@ -269,14 +275,20 @@
     </div>
 </div>
 <script>
-  // Keep the photo square: make its width equal to the height of the text.
+  // Keep the photo square: make its width equal to the height of the name and
+  // text, capped at 30% of the header's width.
   (function () {
+    var header = document.querySelector('.header');
+    var name = document.querySelector('.header-name');
     var text = document.querySelector('.header-text');
     var photo = document.querySelector('.header-photo');
     var narrow = window.matchMedia('(max-width: 600px)');
     function fit() {
       // Twice: resizing the photo changes the text's width, and so its height.
-      for (var i = 0; i < 2; i++) photo.style.width = narrow.matches ? '' : text.offsetHeight + 'px';
+      for (var i = 0; i < 2; i++) {
+        var size = Math.min(name.offsetHeight + text.offsetHeight, header.clientWidth * 0.3);
+        photo.style.width = narrow.matches ? '' : size + 'px';
+      }
     }
     fit();
     window.addEventListener('load', fit);
