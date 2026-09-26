@@ -65,7 +65,7 @@
   .header-text .occupation { margin-bottom: 0; }
   .header-text .education { color: #66758c; margin: 0; }
   /* The photo is always square. The script below sets its width to the height
-     of the name and text so they line up, capped (38% of the row on wide screens,
+     of the name and text so they line up, capped (42% of the row on wide screens,
      30% at in-between widths, where the text wraps and gets tall) so it stays
      a sensible square at the top. 10rem is the no-script fallback. */
   .header-photo { grid-column: 2; grid-row: 1 / span 2; position: relative; aspect-ratio: 1; width: 10rem; }
@@ -109,7 +109,8 @@
                 alt="Photo of Kobe Marshall-Stevens"/>
         </div>
         <div class="header-text">
-        <p class="occupation"><b>J.J. Sylvester Assistant Professor at Johns Hopkins University</b>
+        <p class="occupation"><b>J.J. Sylvester Assistant&#160;Professor</b>
+		<br/><b>Johns Hopkins University</b>
 		<br/>kmarsh34@jh.edu
 			</p>
         <p class="education">PhD, University College London, 2024
@@ -292,7 +293,7 @@
 </div>
 <script>
   // Keep the photo square: make its width equal to the height of the name and
-  // text, capped at 38% of the header's width on wide screens and 30% at
+  // text, capped at 42% of the header's width on wide screens and 30% at
   // in-between widths (where the text wraps and gets tall).
   (function () {
     var header = document.querySelector('.header');
@@ -303,7 +304,7 @@
     function fit() {
       // Twice: resizing the photo changes the text's width, and so its height.
       for (var i = 0; i < 2; i++) {
-        var cap = window.innerWidth >= 900 ? 0.38 : 0.3;
+        var cap = window.innerWidth >= 900 ? 0.42 : 0.3;
         var size = Math.min(name.offsetHeight + text.offsetHeight, header.clientWidth * cap);
         photo.style.width = narrow.matches ? '' : size + 'px';
       }
