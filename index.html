@@ -16,8 +16,14 @@
 	<style>
   .papers td:last-child { width: 4rem; text-align: right; vertical-align: middle; }
   /* PDF links: outlined pill that fills blue on hover. */
-  .btn.pdf-btn { background: transparent; border-radius: 1rem; padding: .05rem .6rem; }
-  .btn.pdf-btn:hover, .btn.pdf-btn:focus { background: #457b9d; border-color: #457b9d; color: #fff; }
+  .btn.pdf-btn, .btn.pdf-btn:visited, .btn.pdf-btn:focus { background: transparent; border-color: #457b9d; color: #1d3557; box-shadow: none; }
+  .btn.pdf-btn { border-radius: 1rem; padding: .05rem .6rem; }
+  /* Fill blue while pressed, on keyboard focus, and on hover (mouse devices
+     only, so the fill doesn't stick after a tap on phones). */
+  .btn.pdf-btn:active, .btn.pdf-btn:focus-visible { background: #457b9d; border-color: #457b9d; color: #fff; }
+  @media (hover: hover) {
+    .btn.pdf-btn:hover { background: #457b9d; border-color: #457b9d; color: #fff; }
+  }
   /* Bigger, easier-to-tap buttons on phones. */
   @media (max-width: 600px) {
     .papers td:last-child { width: 5rem; }
