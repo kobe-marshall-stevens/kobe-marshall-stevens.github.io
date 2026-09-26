@@ -61,10 +61,13 @@
      banner text lines up with the paper titles and talks. */
   .header-text .job-market { margin: 1.2rem 0 0; padding: .45rem .4rem; background: #efe9da; border-radius: .2rem; color: #1d3557; text-wrap: balance; display: flow-root; }
   .header-text p:last-of-type { margin-bottom: 0; }
+  /* Degrees under the email, in grey so they stay secondary to the title. */
+  .header-text .occupation { margin-bottom: 0; }
+  .header-text .education { color: #66758c; margin: 0; }
   /* The photo is always square. The script below sets its width to the height
-     of the name and text so they line up, capped at 30% of the row so that at
-     in-between widths, where the text wraps and gets tall, it stays a smaller
-     square at the top. 10rem is the no-script fallback. */
+     of the name and text so they line up, capped (38% of the row on wide screens,
+     30% at in-between widths, where the text wraps and gets tall) so it stays
+     a sensible square at the top. 10rem is the no-script fallback. */
   .header-photo { grid-column: 2; grid-row: 1 / span 2; position: relative; aspect-ratio: 1; width: 10rem; }
   .header-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; margin: 0; }
   /* On phones the text is too tall to match, so float a smaller square photo
@@ -74,6 +77,8 @@
     .header::after { content: ""; display: table; clear: both; }
     .header-name { margin-bottom: .4rem; }
     .header-photo { float: right; width: 40% !important; aspect-ratio: 1; margin: .2rem 0 .6rem 1.2rem; }
+    /* Degrees start below the photo so each fits on one line. */
+    .header-text .education { clear: right; padding-top: .2rem; }
     /* Balanced wrapping looks odd when the text flows around the photo. */
     .header-text .bio { text-wrap: wrap; margin-top: 1rem; }
   }
@@ -106,6 +111,9 @@
         <div class="header-text">
         <p class="occupation"><b>J.J. Sylvester Assistant Professor at Johns Hopkins University</b>
 		<br/>kmarsh34@jh.edu
+			</p>
+        <p class="education">PhD, University College London, 2024
+		<br/>MMath, University of Warwick, 2020
 			</p>
         <p class="bio">My research is broadly in the area of geometric analysis, using techniques from the calculus of variations, geometric measure theory, and partial differential equations.
 			</p>
@@ -284,7 +292,8 @@
 </div>
 <script>
   // Keep the photo square: make its width equal to the height of the name and
-  // text, capped at 30% of the header's width.
+  // text, capped at 38% of the header's width on wide screens and 30% at
+  // in-between widths (where the text wraps and gets tall).
   (function () {
     var header = document.querySelector('.header');
     var name = document.querySelector('.header-name');
@@ -294,7 +303,8 @@
     function fit() {
       // Twice: resizing the photo changes the text's width, and so its height.
       for (var i = 0; i < 2; i++) {
-        var size = Math.min(name.offsetHeight + text.offsetHeight, header.clientWidth * 0.3);
+        var cap = window.innerWidth >= 900 ? 0.38 : 0.3;
+        var size = Math.min(name.offsetHeight + text.offsetHeight, header.clientWidth * cap);
         photo.style.width = narrow.matches ? '' : size + 'px';
       }
     }
