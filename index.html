@@ -44,9 +44,11 @@
      the page; text-wrap: balance evens out the line lengths. */
   .header-text { flex: 1 1 auto; min-width: 0; }
   .header-text .bio { max-width: 32rem; margin-top: 1.2rem; text-wrap: balance; }
-  /* Job market banner: tinted box at the bottom of the text column, spanning
-     up to the photo (whose height matches the text, so their bottoms line up). */
-  .header-text .job-market { margin: 1.2rem 0 0; padding: .45rem .8rem; background: #eef3f6; border-radius: .2rem; color: #1d3557; text-wrap: balance; display: flow-root; }
+  /* Job market banner: warm tinted box at the bottom of the text column,
+     spanning up to the photo (whose height matches the text, so their bottoms
+     line up). The .4rem side padding matches the table cells below, so the
+     banner text lines up with the paper titles and talks. */
+  .header-text .job-market { margin: 1.2rem 0 0; padding: .45rem .4rem; background: #efe9da; border-radius: .2rem; color: #1d3557; text-wrap: balance; display: flow-root; }
   .header-text h1 { margin-top: 0; }
   .header-text p:last-of-type { margin-bottom: 0; }
   /* The photo is always square. The script below sets its width to the text's
