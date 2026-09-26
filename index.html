@@ -8,6 +8,14 @@
     <link rel="stylesheet" href="style.min.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
     <link rel="icon" type="image/png" href="jh.png"/>
+    <!-- Search result snippet and link previews (email, Slack, social media). -->
+    <meta name="description" content="Kobe Marshall-Stevens, J.J. Sylvester Assistant Professor at Johns Hopkins University. Research in geometric analysis, using the calculus of variations, geometric measure theory, and partial differential equations."/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://kobe-marshall-stevens.github.io/"/>
+    <meta property="og:title" content="Kobe Marshall-Stevens"/>
+    <meta property="og:description" content="Kobe Marshall-Stevens, J.J. Sylvester Assistant Professor at Johns Hopkins University. Research in geometric analysis, using the calculus of variations, geometric measure theory, and partial differential equations."/>
+    <meta property="og:image" content="https://kobe-marshall-stevens.github.io/crete%20picture%20square.jpeg"/>
+    <meta name="twitter:card" content="summary"/>
 	<style>
   body {
     background-color: #f9f6ee;
@@ -68,6 +76,8 @@
   /* Degrees as a small separate block under the email: same colour as the
      text, slightly smaller, with a little space above. */
   .header-text .occupation { margin-bottom: 0; }
+  /* Email is a mailto link but looks like the surrounding text. */
+  .header-text a.email, .header-text a.email:visited { color: inherit; }
   .header-text .education { margin: .5rem 0 0; font-size: .9em; }
   /* The photo is always square. The script at the bottom of the page sizes it
      to span from the top of the name's letters to the bottom of the banner.
@@ -116,7 +126,7 @@
         <div class="header-text">
         <p class="occupation"><b>J.J. Sylvester Assistant&#160;Professor</b>
 		<br/><b>Johns Hopkins University</b>
-		<br/>kmarsh34@jh.edu
+		<br/><a href="mailto:kmarsh34@jh.edu" class="email">kmarsh34@jh.edu</a>
 			</p>
         <p class="education">PhD, University College London, 2024
 		<br/>MMath, University of Warwick, 2020
