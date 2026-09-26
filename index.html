@@ -22,6 +22,10 @@
 </style>
 	<style>
   .papers td { vertical-align: middle; }
+  /* Teaching: course level and terms in warm grey under each course name;
+     a term never splits across lines. */
+  .course-info { color: #7d766a; font-size: .9em; }
+  .course-info .term { white-space: nowrap; }
   .papers td:last-child { width: 4rem; text-align: right; }
   /* PDF links: outlined pill that fills blue on hover. */
   .btn.pdf-btn, .btn.pdf-btn:visited, .btn.pdf-btn:focus { background: transparent; border-color: #457b9d; color: #1d3557; box-shadow: none; }
@@ -224,23 +228,28 @@
             <table class="table papers">
                 <tbody>
 		<tr>
-                    <td>Partial Differential Equations II, Spring 2026</td>
+                    <td>Partial Differential Equations II
+			<br/><span class="course-info">Graduate · <span class="term">Spring 2026</span></span></td>
 		    <td><a href="Partial_Differential_Equations_combined_notes.pdf" class="btn btn-sm pdf-btn">PDF</a></td>
                 </tr>
 		<tr>
-                    <td>Partial Differential Equations I, Fall 2025</td>
+                    <td>Partial Differential Equations I
+			<br/><span class="course-info">Graduate · <span class="term">Fall 2025</span></span></td>
 		    <td><a href="Partial_Differential_Equations_I_notes.pdf" class="btn btn-sm pdf-btn">PDF</a></td>
                 </tr>
 		<tr>
-                    <td>Honors Analysis I, Fall 2025</td>
+                    <td>Honors Analysis I
+			<br/><span class="course-info">Upper-level undergraduate · <span class="term">Fall 2025</span></span></td>
 		    <td><a href="Honors_Analysis_I_notes.pdf" class="btn btn-sm pdf-btn">PDF</a></td>
                 </tr>
 		<tr>
-                    <td>Calculus on Manifolds, Spring 2025 + Spring 2027</td>
+                    <td>Calculus on Manifolds
+			<br/><span class="course-info">Upper-level undergraduate · <span class="term">Spring 2025 and 2027</span></span></td>
 		    <td><a href="Calculus_on_Manifolds_notes.pdf" class="btn btn-sm pdf-btn">PDF</a></td>
                 </tr>
 		<tr>
-                    <td>Calculus I (Physical Sciences and Engineering), Fall 2024 + Fall 2026</td>
+                    <td>Calculus I (Physical Sciences and Engineering)
+			<br/><span class="course-info">First-year undergraduate · <span class="term">Fall 2024 and 2026</span></span></td>
 		    <td><a href="Calculus_I_notes.pdf" class="btn btn-sm pdf-btn">PDF</a></td>
                 </tr>
                 </tbody>
