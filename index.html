@@ -12,6 +12,13 @@
   body {
     background-color: #f9f6ee;
   }
+  /* Narrower content on desktop (Spectre's grid-lg default is 976px) so the
+     PDF buttons and photo sit closer to the text. Roomier side margins on
+     phones. */
+  .container.grid-lg { max-width: 840px; }
+  @media (max-width: 600px) {
+    .container.grid-lg { padding-left: 1rem; padding-right: 1rem; }
+  }
 </style>
 	<style>
   .papers td { vertical-align: middle; }
@@ -65,9 +72,10 @@
   @media (max-width: 600px) {
     .header { display: block; }
     .header::after { content: ""; display: table; clear: both; }
-    .header-photo { float: right; width: 45% !important; aspect-ratio: 1; margin: .3rem 0 .5rem 1rem; }
+    .header-name { margin-bottom: .4rem; }
+    .header-photo { float: right; width: 40% !important; aspect-ratio: 1; margin: .2rem 0 .6rem 1.2rem; }
     /* Balanced wrapping looks odd when the text flows around the photo. */
-    .header-text .bio { text-wrap: wrap; }
+    .header-text .bio { text-wrap: wrap; margin-top: 1rem; }
   }
 </style>
 	<style>
