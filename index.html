@@ -87,19 +87,20 @@
   }
 </style>
 	<style>
-  /* Talks: one line per year, venues separated by dots (added here, so the
-     HTML is just a list of <span class="venue">). A venue name never splits
-     across lines unless it's longer than the line itself. On phones the year
-     sits on its own line above the venues. */
-  /* Each year gets the same padding and grey divider as the table rows. */
+  /* Invited talks: grouped by year, one talk per line with the seminar name
+     in grey after the venue. Each year has the same padding and grey divider
+     as the table rows. On phones the year sits above its talks. */
   .talks { margin-bottom: 1.5rem; }
-  .talks p { position: relative; margin: 0; line-height: 1.5rem; padding: .6rem .4rem .6rem 3.9rem; border-bottom: .05rem solid #dadee4; }
-  .talks .year { position: absolute; left: .4rem; top: .6rem; font-weight: 600; }
-  .talks .venue { display: inline-block; }
-  .talks .venue:not(:last-child)::after { content: "\00B7"; color: #8f98a6; margin: 0 .05rem 0 .25rem; }
+  .talk-year { display: flex; gap: 1rem; padding: .6rem .4rem; border-bottom: .05rem solid #dadee4; }
+  .talk-year .year { flex: 0 0 2.7rem; font-weight: 600; }
+  .talk-year ul { list-style: none; margin: 0; padding: 0; flex: 1; }
+  .talk-year li { margin: 0; line-height: 1.6rem; }
+  .talk-year .seminar { color: #7d766a; font-size: .9em; margin-left: .3rem; }
   @media (max-width: 600px) {
-    .talks p { padding-left: .4rem; }
-    .talks .year { position: static; display: block; margin-bottom: .1rem; }
+    .talk-year { flex-direction: column; gap: .2rem; }
+    .talk-year .year { flex: none; }
+    .talk-year li { line-height: 1.4rem; margin-bottom: .35rem; }
+    .talk-year .seminar { display: block; margin-left: 0; line-height: 1.2rem; }
   }
 </style>
 </head>
@@ -194,34 +195,46 @@
             </table>
 
 		
-            <h2>Talks</h2>
+            <h2>Invited Talks</h2>
 
             <div class="talks">
-                <p><span class="year">2026</span>
-                    <span class="venue">University of Maryland</span>
-                    <span class="venue">University of Cambridge</span>
-                    <span class="venue">Caltech</span>
-                    <span class="venue">Stanford University</span>
-                    <span class="venue">University of Chicago</span>
-                    <span class="venue">AMS Spring Southeastern Sectional Meeting</span>
-                    <span class="venue">University of Notre Dame</span>
-                </p>
-                <p><span class="year">2025</span>
-                    <span class="venue">University of Tennessee</span>
-                    <span class="venue">Brown University</span>
-                    <span class="venue">NCTS</span>
-                    <span class="venue">University of Tokyo</span>
-                    <span class="venue">Keio University</span>
-                    <span class="venue">Institute of Science Tokyo</span>
-                </p>
-                <p><span class="year">2024</span>
-                    <span class="venue">Johns Hopkins University</span>
-                    <span class="venue">University of Tokyo</span>
-                    <span class="venue">King's College London</span>
-                </p>
-                <p><span class="year">2023</span>
-                    <span class="venue">Chinese University of Hong Kong</span>
-                </p>
+                <div class="talk-year">
+                    <div class="year">2026</div>
+                    <ul>
+                        <li>University of Maryland <span class="seminar">Informal Geometric Analysis Seminar</span></li>
+                        <li>University of Cambridge <span class="seminar">Geometric Analysis Seminar</span></li>
+                        <li>Caltech <span class="seminar">Geometry &amp; Topology Seminar</span></li>
+                        <li>Stanford University <span class="seminar">Geometry Seminar</span></li>
+                        <li>University of Chicago <span class="seminar">Geometric Analysis Seminar</span></li>
+                        <li>AMS Spring Southeastern Sectional Meeting</li>
+                        <li>University of Notre Dame <span class="seminar">Geometry and Analysis Seminar</span></li>
+                    </ul>
+                </div>
+                <div class="talk-year">
+                    <div class="year">2025</div>
+                    <ul>
+                        <li>University of Tennessee <span class="seminar">Geometric Analysis Seminar</span></li>
+                        <li>Brown University <span class="seminar">Topics in Differential Geometry Workshop</span></li>
+                        <li>NCTS <span class="seminar">Differential Geometry Seminar</span></li>
+                        <li>University of Tokyo <span class="seminar">Geometric Analysis Seminar</span></li>
+                        <li>Keio University <span class="seminar">Nonlinear Analysis Seminar</span></li>
+                        <li>Institute of Science Tokyo <span class="seminar">Analysis Seminar</span></li>
+                    </ul>
+                </div>
+                <div class="talk-year">
+                    <div class="year">2024</div>
+                    <ul>
+                        <li>Johns Hopkins University <span class="seminar">Analysis &amp; PDE Seminar</span></li>
+                        <li>University of Tokyo <span class="seminar">Analysis Seminar</span></li>
+                        <li>King's College London <span class="seminar">Analysis Seminar</span></li>
+                    </ul>
+                </div>
+                <div class="talk-year">
+                    <div class="year">2023</div>
+                    <ul>
+                        <li>Chinese University of Hong Kong <span class="seminar">Joint Geometric Analysis Seminar</span></li>
+                    </ul>
+                </div>
             </div>
 
 		<h2>Teaching</h2>
