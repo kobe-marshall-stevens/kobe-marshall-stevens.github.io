@@ -70,16 +70,15 @@
      a sensible square at the top. 10rem is the no-script fallback. */
   .header-photo { grid-column: 2; grid-row: 1 / span 2; position: relative; aspect-ratio: 1; width: 10rem; }
   .header-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; margin: 0; }
-  /* On phones the text is too tall to match, so float a smaller square photo
-     top right and let the text wrap around it. */
+  /* On phones: a centred profile card. Photo on top, then the name, title,
+     email and degrees centred beneath it; the bio and banner stay
+     left-aligned for readability. */
   @media (max-width: 600px) {
-    .header { display: block; }
-    .header::after { content: ""; display: table; clear: both; }
-    .header-name { margin-bottom: .4rem; }
-    .header-photo { float: right; width: 40% !important; aspect-ratio: 1; margin: .2rem 0 .6rem 1.2rem; }
-    /* Degrees start below the photo so each fits on one line. */
-    .header-text .education { clear: right; padding-top: .2rem; }
-    /* Balanced wrapping looks odd when the text flows around the photo. */
+    .header { display: flex; flex-direction: column; align-items: center; }
+    .header-photo { order: -1; width: 9rem !important; margin-bottom: 1rem; }
+    .header-name { margin-bottom: .3rem; text-align: center; }
+    .header-text { align-self: stretch; }
+    .header-text .occupation, .header-text .education { text-align: center; }
     .header-text .bio { text-wrap: wrap; margin-top: 1rem; }
   }
 </style>
