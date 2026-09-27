@@ -69,8 +69,10 @@
   .header-name { grid-column: 1; grid-row: 1; margin-top: 0; }
   .header-text { grid-column: 1; grid-row: 2; }
   /* The bio wraps at a comfortable reading width instead of stretching across
-     the page; text-wrap: balance evens out the line lengths. */
-  .header-text .bio { max-width: 32rem; margin-top: 1.2rem; text-wrap: balance; }
+     the page. */
+  .header-text .bio { max-width: 32rem; margin-top: 1.2rem; }
+  /* Keep each field name on one line so the bio breaks between phrases. */
+  .header-text .bio .nb { white-space: nowrap; }
   /* Job market banner: warm tinted box at the bottom of the text column,
      spanning up to the photo (whose height matches the text, so their bottoms
      line up). The .4rem side padding matches the table cells below, so the
@@ -97,7 +99,7 @@
     .header-text { align-self: stretch; }
     .header-text .occupation, .header-text .education,
     .header-text .bio, .header-text .job-market { text-align: center; }
-    .header-text .bio { margin-top: 1rem; }
+    .header-text .bio { margin-top: 1rem; text-wrap: balance; }
   }
 </style>
 	<style>
@@ -170,7 +172,7 @@
         <p class="education">PhD, University College London, 2024
 		<br/>MMath, University of Warwick, 2020
 			</p>
-        <p class="bio">My research is in geometric analysis, using techniques from the calculus of variations, geometric measure theory, and partial differential equations.
+        <p class="bio">My research is in <span class="nb">geometric analysis,</span> using techniques from <span class="nb">the calculus of variations,</span> <span class="nb">geometric measure theory,</span> and <span class="nb">partial differential equations.</span>
 			</p>
         <p class="job-market"><b>I am on the job market</b> for positions starting Fall&#160;2027.</p>
 			    
