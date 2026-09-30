@@ -38,6 +38,8 @@
      a term never splits across lines. */
   .course-info { color: #7d766a; font-size: .9em; }
   .course-info .term { white-space: nowrap; }
+  /* Small grey subheading within a section (e.g. Teaching's course list). */
+  .subhead { font-size: .8rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: #7d766a; margin: 1.6rem 0 .1rem .4rem; }
   .papers td:last-child { width: 4rem; text-align: right; }
   /* PDF links: outlined pill that fills blue on hover. */
   .btn.pdf-btn, .btn.pdf-btn:visited, .btn.pdf-btn:focus { background: transparent; border-color: #457b9d; color: #1d3557; box-shadow: none; }
@@ -136,7 +138,7 @@
   html[data-theme="dark"] h1, html[data-theme="dark"] h2, html[data-theme="dark"] b,
   html[data-theme="dark"] .talk-year .year { color: #e8e3d8; }
   html[data-theme="dark"] .table td, html[data-theme="dark"] .talk-year { border-bottom-color: #383530; }
-  html[data-theme="dark"] .course-info, html[data-theme="dark"] .talk-year .seminar,
+  html[data-theme="dark"] .course-info, html[data-theme="dark"] .talk-year .seminar, html[data-theme="dark"] .subhead,
   html[data-theme="dark"] .papers .authors { color: #a8a193; }
   html[data-theme="dark"] .header-text .job-market { background: #2b2925; color: #e8e3d8; }
   html[data-theme="dark"] .btn.pdf-btn, html[data-theme="dark"] .btn.pdf-btn:visited,
@@ -298,6 +300,18 @@
 			<br/><span class="course-info">Johns Hopkins University · <span class="term">2024–25 and 2025–26</span></span></td>
 		    <td></td>
                 </tr>
+		<tr>
+                    <td><b>Teaching portfolio</b>
+			<br/><span class="course-info">Syllabi, assignments, notes, evaluations, and lecture videos</span></td>
+		    <td><a href="Teaching_portfolio.pdf" class="btn btn-sm pdf-btn">PDF</a></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h3 class="subhead">Instructed courses &amp; notes</h3>
+
+            <table class="table papers">
+                <tbody>
 		<tr>
                     <td>Partial Differential Equations II
 			<br/><span class="course-info">Graduate · <span class="term">Spring 2026</span></span></td>
