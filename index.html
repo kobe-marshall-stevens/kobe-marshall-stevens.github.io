@@ -87,6 +87,9 @@
      line up). The .4rem side padding matches the table cells below, so the
      banner text lines up with the paper titles and talks. */
   .header-text .job-market { margin: 1.2rem 0 0; padding: .45rem .4rem; background: #efe9da; border-radius: .2rem; color: #1d3557; text-wrap: balance; display: flow-root; }
+  /* CV button at the right end of the banner; on phones it drops below the sentence, centred. */
+  .header-text .job-market:has(.cv) { display: flex; align-items: center; justify-content: space-between; gap: .6rem; }
+  .header-text .job-market .cv { flex: none; margin: -.2rem 0; }
   .header-text p:last-of-type { margin-bottom: 0; }
   /* Degrees as a small separate block under the email: same colour as the
      text, slightly smaller. The email→degrees, degrees→bio and bio→banner
@@ -110,6 +113,8 @@
     .header-text .occupation, .header-text .education,
     .header-text .bio, .header-text .job-market { text-align: center; }
     .header-text .bio { margin-top: 1.05rem; text-wrap: balance; }
+    .header-text .job-market:has(.cv) { flex-direction: column; gap: .5rem; }
+    .header-text .job-market .cv { margin: 0; }
   }
 </style>
 	<style>
@@ -184,14 +189,9 @@
 			</p>
         <p class="bio">My research is in <span class="nb">geometric analysis,</span> using techniques from <span class="nb">the calculus of variations,</span> <span class="nb">geometric measure theory,</span> and <span class="nb">partial differential equations.</span>
 			</p>
-        <p class="job-market"><b>I am on the job market</b> for positions starting Fall&#160;2027.</p>
+        <p class="job-market"><span><b>I am on the job market</b> for positions starting Fall&#160;2027.</span><span class="cv"><a href="CV_9_October.pdf" class="btn btn-sm pdf-btn">CV</a></span></p>
 			    
 			
-<!--	
-            <p class="links">
-                <a href="CV.pdf" class="btn btn-sm">CV</a>
-            </p>
--->
         </div>
     </div>
     <div class="columns">
